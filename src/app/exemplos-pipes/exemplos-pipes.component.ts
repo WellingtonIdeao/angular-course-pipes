@@ -30,4 +30,19 @@ export class ExemplosPipesComponent implements OnInit {
     console.log(this.livros);
   }
 
+  obterCursos(): any{
+    if (this.livros.length === 0 || this.filtro === undefined || this.filtro.trim()=== '')
+      return this.livros;
+    let filter = this.filtro.toLowerCase();
+    
+    return this.livros.filter(
+      (v: any) => { 
+        if(v.toLowerCase().indexOf(filter)>=0){
+          return true;
+        }
+        return false;  
+      }
+    );
+  }
+
 }
